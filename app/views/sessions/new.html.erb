@@ -1,0 +1,19 @@
+<h1>Login</h1>
+<%= form_tag("/login", method: :post) do %>
+    <% if @error.present? %>
+      <div id="error_explanation">
+        <h2> An error prohibited this post from being saved:</h2>
+        <ul>
+          <li><%= @error %></li>
+        </ul>
+      </div>
+    <% end %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <br>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br>
+    <br>
+    <%= submit_tag "Login" %>
+<% end %>
