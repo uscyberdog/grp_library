@@ -1,4 +1,9 @@
-<h1>Login</h1>
+
+<div class="text-center">
+<h1>Library Login</h1>
+
+</div>
+    <div class="container">
 <%= form_tag("/login", method: :post) do %>
     <% if @error.present? %>
       <div id="error_explanation">
@@ -6,14 +11,31 @@
         <ul>
           <li><%= @error %></li>
         </ul>
-      </div>
+    </div>
     <% end %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <fieldset>
+        <div class="well well-sm">
+            <%= label_tag :email %>
+            <%= text_field_tag :email %>
+        </div>
     <br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+        <div class="well well-sm">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+        </div>
+    </fieldset>
     <br>
     <br>
-    <%= submit_tag "Login" %>
+        <div class="btn btn-default">
+            <%= submit_tag "Login" %>
+        </div>
+
+        <div  class="btn btn-default">
+            <%= link_to 'Register', new_user_path %>
+            
+       </div> 
+       <div  class="btn btn-default">
+            <%= link_to 'Logout', logout_path %>
+    </div>
+
 <% end %>
