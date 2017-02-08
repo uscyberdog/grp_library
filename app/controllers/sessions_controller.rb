@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   	respond_to do |format|
 	  	if user && user.authenticate(params[:password])
 	  		session[:user_id] = user.id  ## logged in!
-	  		format.html { redirect_to users_path, notice: "#{user.fname} #{user.lname} is now logged in"}
+	  		format.html { redirect_to user_path, notice: "#{user.fname} #{user.lname} is now logged in"}
 	  		# do something that indicates that login was sucessful
 	  		# redirect to posts index
 
