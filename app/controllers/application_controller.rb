@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
  def send_to_login_unless_logged_in
     if @current_user.nil?
-      redirect_to sessions_path, notice: "You must login before proceeding"
+      redirect_to login_path, notice: "You must login before proceeding"
     end
   end
 
