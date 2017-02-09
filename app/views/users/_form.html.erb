@@ -13,14 +13,18 @@
 
   <!-- Create a form to show/edit users -->
   <fieldset>
-  <%= f.label :fname %>
+  <%= f.label :first_name %>
   <%= f.text_field :fname %>
-  <%= f.label :lname %>
+  <br>
+  <%= f.label :last_name %>
   <%= f.text_field :lname %>
+  <br>
   <%= f.label :email %>
   <%= f.text_field :email %>
+  <br>
   <%= f.label :password %>
   <%= f.text_field :password %>
+  <br>
   <!-- Need to add password confirmation setup here -->
 
   </fieldset>
