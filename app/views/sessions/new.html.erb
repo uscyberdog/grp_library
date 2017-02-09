@@ -14,23 +14,20 @@
     </div>
     <% end %>
     <fieldset>
-        <div class="well well-sm">
+        <div class="well">
             <%= label_tag :email %>
             <%= text_field_tag :email %>
         </div>
     <br>
-        <div class="well well-sm">
+        <div class="well">
             <%= label_tag :password %>
             <%= password_field_tag :password %>
         </div>
     </fieldset>
-    <br>
-    <br>
+    
         <%= submit_tag 'Login', class: 'btn btn-default' %>
 
         <%= link_to 'Register', new_user_path, class: 'btn btn-default' %>
-            
-        <%= link_to 'Logout', logout_path, class: 'btn btn-default' %>
     </div>
 
 <% end %>
