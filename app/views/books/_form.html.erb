@@ -1,8 +1,10 @@
 <%= form_tag("/lookup", method: :post) do %>
 
   <fieldset>
+  
     <%= label_tag :isbn %>
     <%= text_field_tag :isbn %>
+
 
     <div class="btn btn-default">
       <%= submit_tag "Lookup ISBN" %>
@@ -36,25 +38,40 @@
       </ul>
     </div>
   <% end %>
+    <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title %><br>
+    </div>
     <%#= f.label "Published" %>
     <%#= f.date :pub_date %><br>
-
-    <%= f.label "Goodreads Book ID" %>
-    <%= f.text_field :gr_book_id %><br>
+    <div class="form-group">
+      <%= f.label "Goodreads Book ID" %>
+      <%= f.text_field :gr_book_id %><br>
+    </div>
+    <div class="form-group">
     <%= f.label "Goodreads Rating" %>
     <%= f.text_field :gr_avg_rating %><br>
+    </div>
+    <div class="form-group">
     <%= f.label "Number of Pages" %>
     <%= f.text_field :num_pages %><br>
+    </div>  
+    <div class="form-group">
     <%= f.label "Goodreads Book Link" %>
     <%= f.text_field :gr_link %><br>
+    </div> 
+    <div class="form-group">
     <%= f.label :author %>
     <%= f.text_field :author %><br>
+    </div>
+    <div class="form-group">
     <%= f.label 'Goodreads Author ID' %>
     <%= f.text_field :gr_author_id %><br>
+    </div>
+    <div class="form-group">
     <%= f.label 'ISBN' %>
     <%= f.text_field :isbn %><br>
+    </div>
   <% if @book.book_cover_photo_med.nil? %>
   <% else %>
     <%= f.label 'Book Cover' %>
@@ -62,9 +79,10 @@
     <%= f.hidden_field :book_cover_photo_med, value: @book.book_cover_photo_med %>
     <%= f.hidden_field :book_cover_photo_sm, value: @book.book_cover_photo_sm %>
   <% end %>
+  <div class="form-group">
   <%= f.label "Description" %>
   <%= f.text_field :description %><br>
-
+  </div>
   <br>
   <div class="actions">
     <%= f.submit 'Add book to your library' %>
