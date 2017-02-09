@@ -26,16 +26,11 @@
     </fieldset>
     <br>
     <br>
-        <div class="btn btn-default">
-            <%= submit_tag "Login" %>
-        </div>
+        <%= submit_tag 'Login', class: 'btn btn-default' %>
 
-        <div  class="btn btn-default">
-            <%= link_to 'Register', new_user_path %>
+        <%= link_to 'Register', new_user_path, class: 'btn btn-default' %>
             
-       </div> 
-       <div  class="btn btn-default">
-            <%= link_to 'Logout', logout_path %>
+        <%= link_to 'Logout', logout_path, class: 'btn btn-default' %>
     </div>
 
 <% end %>
