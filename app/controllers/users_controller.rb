@@ -65,6 +65,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      puts "current user id is: #{params[:id]}"
       @user = User.find(params[:id])
     end
 
