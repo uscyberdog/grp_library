@@ -36,6 +36,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use goodreads gem to access api results
 gem 'goodreads'
+# Use forman to store goodread's api information
+gem 'foreman'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
