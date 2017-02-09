@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  resources :books
 
 	# login form
   get 'login', to: 'sessions#new'
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
-  resources :books
+  post '/lookup', to: 'books#lookup'
+
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
