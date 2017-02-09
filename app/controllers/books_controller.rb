@@ -63,31 +63,9 @@ class BooksController < ApplicationController
   end
 
   def lookup
-    isbn = params[:isbn]
-    puts "**************** ISBN is: #{isbn}"
     # look up isbn on goodreads
-    client = Goodreads::Client.new(:api_key => 'UWJCblTbuvlJVdQBLENkOg', :api_secret => 'AbgCapvYysV18BxtnX65bL2pFvr63cky7MEO1GWv0k')
-    Goodreads.configuration
-    search = client.book_by_isbn(isbn)
-    @book = Book.new
-    @book.author = search.authors.author.name
-    @book.gr_author_id = search.authors.author.id
-    @book.isbn = search.isbn
-    @book.book_cover_photo_med = search.image_url
-    @book.book_cover_photo_sm = search.small_image_url
-    @book.title = search.title
-    #@book_title = search.work.original_title
-    @book.description = search.description  # may have imbedded html 
-    puts "********************* Description: #{@book.description}"
-    @book.gr_book_id = search.id
-    #pub_yr = search.original_publication_year
-    #pub_mth = search.original_publication_month
-    #pub_day = search.original_publication_day
-    #@book.pub_date = convert_date(pub_yr, pub_mth, pub_day)
-    @book.gr_avg_rating = search.average_rating
-    @book.num_pages = search.num_pages
-    @book.gr_link = search.link
-    puts "**************Title: #{@book.title} by #{@book.author}"
+    response = GoodreadsService.new(params[:isbn]).formatted_response
+    @book = Book.new(response)
     render :new
   end
 
