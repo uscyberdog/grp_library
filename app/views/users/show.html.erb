@@ -2,9 +2,12 @@
 <p id="notice"><%= notice %></p>
 <!-- Display a single user -->
 <h1>Showing User: <%= @user.fname %> <%=@user.lname %></h1>
+
+
 <span>Email: <%= @user.email %></span>
 
 <!-- Put list of books here -->
-
+<div class="action">
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
