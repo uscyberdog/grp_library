@@ -1,0 +1,503 @@
+<GoodreadsResponse>
+<Request>
+<authentication>true</authentication>
+<key>
+<![CDATA[ UWJCblTbuvlJVdQBLENkOg ]]>
+</key>
+<method>
+<![CDATA[ search_index ]]>
+</method>
+</Request>
+<search>
+<query>
+<![CDATA[ Hunt For Red October ]]>
+</query>
+<results-start>1</results-start>
+<results-end>19</results-end>
+<total-results>27</total-results>
+<source>Goodreads</source>
+<query-time-seconds>0.20</query-time-seconds>
+<results>
+<work>
+<id type="integer">1112006</id>
+<books_count type="integer">12</books_count>
+<ratings_count type="integer">267572</ratings_count>
+<text_reviews_count type="integer">2005</text_reviews_count>
+<original_publication_year type="integer">1984</original_publication_year>
+<original_publication_month type="integer">10</original_publication_month>
+<original_publication_day type="integer">28</original_publication_day>
+<average_rating>4.00</average_rating>
+<best_book type="Book">
+<id type="integer">19691</id>
+<title>The Hunt for Red October (Jack Ryan Universe, #4)</title>
+<author>
+<id type="integer">3892</id>
+<name>Tom Clancy</name>
+</author>
+<image_url>
+https://images.gr-assets.com/books/1281995542m/19691.jpg
+</image_url>
+<small_image_url>
+https://images.gr-assets.com/books/1281995542s/19691.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">5054795</id>
+<books_count type="integer">2</books_count>
+<ratings_count type="integer">1066</ratings_count>
+<text_reviews_count type="integer">17</text_reviews_count>
+<original_publication_year type="integer" nil="true"/>
+<original_publication_month type="integer" nil="true"/>
+<original_publication_day type="integer" nil="true"/>
+<average_rating>4.21</average_rating>
+<best_book type="Book">
+<id type="integer">32683</id>
+<title>Patriot Games / The Hunt for Red October</title>
+<author>
+<id type="integer">3892</id>
+<name>Tom Clancy</name>
+</author>
+<image_url>
+https://images.gr-assets.com/books/1331526112m/32683.jpg
+</image_url>
+<small_image_url>
+https://images.gr-assets.com/books/1331526112s/32683.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">5054733</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">498</ratings_count>
+<text_reviews_count type="integer">19</text_reviews_count>
+<original_publication_year type="integer">1987</original_publication_year>
+<original_publication_month type="integer">11</original_publication_month>
+<original_publication_day type="integer">1</original_publication_day>
+<average_rating>4.26</average_rating>
+<best_book type="Book">
+<id type="integer">1124918</id>
+<title>
+Red Storm Rising and The Hunt For Red October Clancy, 2 volume, boxed set
+</title>
+<author>
+<id type="integer">3892</id>
+<name>Tom Clancy</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">20909</id>
+<books_count type="integer">2</books_count>
+<ratings_count type="integer">15</ratings_count>
+<text_reviews_count type="integer">3</text_reviews_count>
+<original_publication_year type="integer">2005</original_publication_year>
+<original_publication_month type="integer">5</original_publication_month>
+<original_publication_day type="integer">30</original_publication_day>
+<average_rating>4.27</average_rating>
+<best_book type="Book">
+<id type="integer">19696</id>
+<title>
+The Last Sentry: The True Story That Inspired the Hunt for Red October
+</title>
+<author>
+<id type="integer">11765</id>
+<name>Gregory D. Young</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">45387484</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2012</original_publication_year>
+<original_publication_month type="integer">5</original_publication_month>
+<original_publication_day type="integer">14</original_publication_day>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">25584360</id>
+<title>The Hunt for Red October Lesson Plans</title>
+<author>
+<id type="integer">4819027</id>
+<name>BookRags</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">2601644</id>
+<books_count type="integer">8</books_count>
+<ratings_count type="integer">98</ratings_count>
+<text_reviews_count type="integer">25</text_reviews_count>
+<original_publication_year type="integer">2008</original_publication_year>
+<original_publication_month type="integer">5</original_publication_month>
+<original_publication_day type="integer">13</original_publication_day>
+<average_rating>3.59</average_rating>
+<best_book type="Book">
+<id type="integer">2584791</id>
+<title>
+Mutiny: The True Events That Inspired The Hunt For Red October - From the Soviet Naval Hero Who Was There
+</title>
+<author>
+<id type="integer">98890</id>
+<name>David Hagberg</name>
+</author>
+<image_url>
+https://images.gr-assets.com/books/1312030713m/2584791.jpg
+</image_url>
+<small_image_url>
+https://images.gr-assets.com/books/1312030713s/2584791.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">177822</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">1988</original_publication_year>
+<original_publication_month type="integer">5</original_publication_month>
+<original_publication_day type="integer" nil="true"/>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">183994</id>
+<title>The Hunt for Red October Game (Tsr Game)</title>
+<author>
+<id type="integer">23895</id>
+<name>Douglas Niles</name>
+</author>
+<image_url>
+https://images.gr-assets.com/books/1449772481m/183994.jpg
+</image_url>
+<small_image_url>
+https://images.gr-assets.com/books/1449772481s/183994.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">14210966</id>
+<books_count type="integer">3</books_count>
+<ratings_count type="integer">69</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2010</original_publication_year>
+<original_publication_month type="integer">12</original_publication_month>
+<original_publication_day type="integer">7</original_publication_day>
+<average_rating>4.42</average_rating>
+<best_book type="Book">
+<id type="integer">9327713</id>
+<title>
+Tom Clancy Collection (Limited Edition): Clear and Present Danger, The Hunt for Red October
+</title>
+<author>
+<id type="integer">3892</id>
+<name>Tom Clancy</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">51383278</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer" nil="true"/>
+<original_publication_month type="integer" nil="true"/>
+<original_publication_day type="integer" nil="true"/>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">30795505</id>
+<title>Based on a True Story: The Hunt for Red October</title>
+<author>
+<id type="integer">15269030</id>
+<name>Dan LeFebvre</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">16368697</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2011</original_publication_year>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_day type="integer">3</original_publication_day>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">11435135</id>
+<title>The Hunt for Reds (in October)</title>
+<author>
+<id type="integer">3963563</id>
+<name>Michael V. Kennedy</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">6800505</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">5</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2001</original_publication_year>
+<original_publication_month type="integer">11</original_publication_month>
+<original_publication_day type="integer">5</original_publication_day>
+<average_rating>4.40</average_rating>
+<best_book type="Book">
+<id type="integer">6606582</id>
+<title>
+Thriller Collection: "The Hunt for Red October", "Op-centre", "The Miracle Strain" v. 1 (Audio Cassette)
+</title>
+<author>
+<id type="integer">3892</id>
+<name>Tom Clancy</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">44353733</id>
+<books_count type="integer">2</books_count>
+<ratings_count type="integer">1</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2015</original_publication_year>
+<original_publication_month type="integer">7</original_publication_month>
+<original_publication_day type="integer">31</original_publication_day>
+<average_rating>2.00</average_rating>
+<best_book type="Book">
+<id type="integer">24727256</id>
+<title>The Hunt for a Reds October: Cincinnati in 1990</title>
+<author>
+<id type="integer">851447</id>
+<name>Charles F. Faber</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">49243086</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">1</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer" nil="true"/>
+<original_publication_month type="integer" nil="true"/>
+<original_publication_day type="integer" nil="true"/>
+<average_rating>4.00</average_rating>
+<best_book type="Book">
+<id type="integer">29003020</id>
+<title>
+Tom Clancy - Collection: The Hunt for Red October & Clear and Present Danger
+</title>
+<author>
+<id type="integer">3892</id>
+<name>Tom Clancy</name>
+</author>
+<image_url>
+https://images.gr-assets.com/books/1455790012m/29003020.jpg
+</image_url>
+<small_image_url>
+https://images.gr-assets.com/books/1455790012s/29003020.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">42685233</id>
+<books_count type="integer">2</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2014</original_publication_year>
+<original_publication_month type="integer">5</original_publication_month>
+<original_publication_day type="integer">14</original_publication_day>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">23137495</id>
+<title>
+The Last Sentry: The True Story That Inspired the Hunt for Red October
+</title>
+<author>
+<id type="integer">11765</id>
+<name>Gregory D. Young</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">40405725</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2012</original_publication_year>
+<original_publication_month type="integer">4</original_publication_month>
+<original_publication_day type="integer">23</original_publication_day>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">21036824</id>
+<title>
+Hunt for Red October Movie Quiz (Movie Quiz Project)
+</title>
+<author>
+<id type="integer">7515394</id>
+<name>Allen Yoakum</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">14362909</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">1</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2010</original_publication_year>
+<original_publication_month type="integer">9</original_publication_month>
+<original_publication_day type="integer">14</original_publication_day>
+<average_rating>5.00</average_rating>
+<best_book type="Book">
+<id type="integer">9477626</id>
+<title>
+Works by Tom Clancy (Study Guide): Books by Tom Clancy, Novels by Tom Clancy, the Hunt for Red October, Debt of Honor
+</title>
+<author>
+<id type="integer">4340042</id>
+<name>Books LLC</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">17765300</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">31</ratings_count>
+<text_reviews_count type="integer">4</text_reviews_count>
+<original_publication_year type="integer">2011</original_publication_year>
+<original_publication_month type="integer">8</original_publication_month>
+<original_publication_day type="integer">26</original_publication_day>
+<average_rating>4.26</average_rating>
+<best_book type="Book">
+<id type="integer">12651623</id>
+<title>
+Novels By Tom Clancy, including: The Hunt For Red October, The Cardinal Of The Kremlin, Debt Of Honor, Clear And Present Danger, Red Storm Rising, Executive Orders, Without Remorse, Rainbow Six (novel), Red Rabbit, The Sum Of All Fears, Ssn (novel)
+</title>
+<author>
+<id type="integer">5167894</id>
+<name>Hephaestus Books</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">18082881</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">2011</original_publication_year>
+<original_publication_month type="integer">10</original_publication_month>
+<original_publication_day type="integer">1</original_publication_day>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">12927263</id>
+<title>
+Ryanverse, including: Clear And Present Danger (film), Patriot Games (film), The Hunt For Red October (film), The Sum Of All Fears (film), The Hunt For Red October, The Cardinal Of The Kremlin, Debt Of Honor, Clear And Present Danger, Executive Orders
+</title>
+<author>
+<id type="integer">5167894</id>
+<name>Hephaestus Books</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<id type="integer">41736634</id>
+<books_count type="integer">1</books_count>
+<ratings_count type="integer">0</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<original_publication_year type="integer">1986</original_publication_year>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_day type="integer">1</original_publication_day>
+<average_rating type="float">0.0</average_rating>
+<best_book type="Book">
+<id type="integer">22338409</id>
+<title>
+Reader's Digest Condensed Books 1986: King of the Golden Valley, The Hunt for Red October, This Giving Heart, The Seventh Secret (Reader's Digest)
+</title>
+<author>
+<id type="integer">3353821</id>
+<name>Reader's Digest Association</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+</small_image_url>
+</best_book>
+</work>
+</results>
+</search>
+</GoodreadsResponse>
