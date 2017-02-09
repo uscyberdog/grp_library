@@ -1,0 +1,236 @@
+# Setup Client
+client = Goodreads::Client.new(:api_key => 'UWJCblTbuvlJVdQBLENkOg', :api_secret => 'AbgCapvYysV18BxtnX65bL2pFvr63cky7MEO1GWv0k')
+
+#Get Global configuration
+Goodreads.configuration
+
+#not found   ***************Ask Shanon
+Goodreads::NotFound
+
+# Lookup books by ID, ISBN, Book Title
+client.book('id')
+client.book_by_isbn('ISBN')
+client.book_by_title('Book title')
+search = client.book_by_isbn('0425240339')  
+
+# Returns hugh mash with the following layout
+<id>53732</id>
+<title>Dune</title>
+<isbn>...</isbn>
+<isbn13>...</isbn13>
+<asin>...</asin>
+<kindle_asin>...</kindle_asin>
+<marketplace_id>...</marketplace_id>
+<country_code>...</country_code>
+<image_url>...</image_url>
+<small_image_url>...</small_image_url>
+<publication_year>1990</publication_year>
+<publication_month>9</publication_month>
+<publication_day>1</publication_day>
+<publisher>Ace/Berkley Books</publisher>
+<language_code>en-US</language_code>
+<is_ebook>false</is_ebook>
+<description>...</description>
+<work>...</work>
+<average_rating>4.18</average_rating>
+<num_pages>...</num_pages>
+<format>...</format>
+<edition_information>...</edition_information>
+<ratings_count>...</ratings_count>
+<text_reviews_count>...</text_reviews_count>
+<url>...</url>
+<link>...</link>
+<authors>...</authors>
+<reviews_widget>...</reviews_widget>
+<popular_shelves>...</popular_shelves>
+<book_links>...</book_links>
+<buy_links>...</buy_links>
+<series_works>...</series_works>
+<similar_books>...</similar_books>
+
+# How to access fields we need
+author = search.authors.author.name
+gr_author_id = search.authors.author.id
+isbn = search.isbn
+book_cover_photo_med = search.image_url
+book_cover_photo_sm = search.small_image_url
+# Note: to get large book cover image replace 's/' in small image url value with 'l/'
+book_title = search.title
+book_title = search.work.original_title
+book_desc = search.description  # may have imbedded html 
+gr_book_id = search.id
+pub_yr = search.original_publication_year
+pub_mth = search.original_publication_month
+pub_day = search.original_publication_day
+avg_gr_rating = search.average_rating
+num_pages = search.num_pages
+gr_link = search.link
+
+
+# Search for books by Title, ISBN, Genre
+search = client.search_books('0425240339')
+
+
+Returns:
+#<Hashie::Mash query="0425240339" query_time_seconds="0.00" results=#<Hashie::Mash work=#<Hashie::Mash average_rating="4.00" best_book=#<Hashie::Mash author=#<Hashie::Mash id=3892 name="Tom Clancy"> id=8500838 image_url="http://images.gr-assets.com/books/1350819346m/8500838.jpg" small_image_url="http://images.gr-assets.com/books/1350819346s/8500838.jpg" title="The Hunt for Red October (Jack Ryan, #3)" type="Book"> books_count=113 id=1112006 original_publication_day=28 original_publication_month=10 original_publication_year=1984 ratings_count=267593 text_reviews_count=2005>> results_end="1" results_start="1" source="Goodreads" total_results="1">
+
+# To access results
+author = search.results.work.best_book.author.name
+gr_author_id = search.results.work.best_book.author.id
+book_cover_photo_med = search.result.work.best_book.image_url
+book_cover_photo_sm = search.results.work.best_book.small_image_url
+# Note: to get large book cover image replace 's/' in small image with 'l/'
+title = search.results.work.best_book.title
+pub_yr = search.results.work.original_publication_year
+pub_mth = search.results.work.original_publication_month
+pub_day = search.results.work.original_publication_day 
+search.results.work.average_rating
+
+Author info:
+author = client.author('id')
+
+author.id              # => author id
+author.name            # => author's name
+author.link            # => link to author's Goodreads page
+author.fans_count      # => number of fans author has on Goodreads
+author.image_url       # => link to image of the author
+author.small_image_url # => link to smaller of the author
+author.about           # => description of the author
+author.influences      # => list of links to author's influences
+author.works_count     # => number of works by the author in Goodreads
+author.gender          # => author's gender
+author.hometown        # => author's hometown
+author.born_at         # => author's birthdate
+author.died_at         # => date of author's death
+
+# author = client.author('3892')
+<id>3892</id>
+<name>Tom Clancy</name>
+<link>...</link>
+<fans_count type="integer">4023</fans_count>
+<author_followers_count type="integer">4023</author_followers_count>
+<large_image_url>...</large_image_url>
+<image_url>...</image_url>
+<small_image_url>...</small_image_url>
+<about>...</about>
+<influences>...</influences>
+<works_count>286</works_count>
+<gender>male</gender>
+<hometown>Baltimore County, Maryland</hometown>
+<born_at>1947/04/12</born_at>
+<died_at>2013/10/01</died_at>
+<goodreads_author/>
+<books>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+<book>...</book>
+</books>
+</author>
+
+
+
+
+
+Book request using Search.books
+
+Find books by title, author, or ISBN
+Get an xml response with the most popular books for the given query. This will search all books in the title/author/ISBN fields and show matches, sorted by popularity on Goodreads. There will be cases where a result is shown on the Goodreads site, but not through the API. This happens when the result is an Amazon-only edition and we have to honor Amazon's terms of service. 
+URL: https://www.goodreads.com/search/index.xml    (sample url) 
+HTTP method: GET 
+Parameters: 
+q: The query text to match against book title, author, and ISBN fields. Supports boolean operators and phrase searching.
+page: Which page to return (default 1, optional)
+key: Developer key (required).
+search[field]: Field to search, one of 'title', 'author', or 'all' (default is 'all')
+
+Examples:
+https://www.goodreads.com/search/index.xml?key=UWJCblTbuvlJVdQBLENkOg&q=Hunt+For+Red+October
+Using ISBN 10
+https://www.goodreads.com/search/index.xml?key=UWJCblTbuvlJVdQBLENkOg&q=0425240339
+Using ISBN 13
+https://www.goodreads.com/search/index.xml?key=UWJCblTbuvlJVdQBLENkOg&q=978-0425240335
+
+ISBN: 0425240339
+ISBN: 978-0425240335
+https://www.goodreads.com/book/isbn/0425240339
+Photo references
+https://images.gr-assets.com/books/1350819346s/8500838.jpg
+https://images.gr-assets.com/books/1350819346m/8500838.jpg
+https://images.gr-assets.com/books/1350819346l/8500838.jpg
+
+<work>
+	<id type="integer">1112006</id>
+	<books_count type="integer">12</books_count>
+	<ratings_count type="integer">267572</ratings_count>
+	<text_reviews_count type="integer">2005</text_reviews_count>
+	<original_publication_year type="integer">1984</original_publication_year>
+	<original_publication_month type="integer">10</original_publication_month>
+	<original_publication_day type="integer">28</original_publication_day>
+	<average_rating>4.00</average_rating>
+	<best_book type="Book">
+	  <id type="integer">19691</id>
+		<title>The Hunt for Red October (Jack Ryan Universe, #4)</title>
+		<author>
+			<id type="integer">3892</id>
+			<name>Tom Clancy</name>
+		</author>
+		<image_url>
+			https://images.gr-assets.com/books/1281995542m/19691.jpg
+		</image_url>
+		<small_image_url>
+			https://images.gr-assets.com/books/1281995542s/19691.jpg
+		</small_image_url>
+	</best_book>
+</work>
+
+
+
+Author request using Get info about an author by id (author.show)
+
+https://www.goodreads.com/author/show/3892?format=xml&key=UWJCblTbuvlJVdQBLENkOg
+
+<author>
+	<id>3892</id>
+	<name>Tom Clancy</name>
+	<link>
+	<![CDATA[https://www.goodreads.com/author/show/3892.Tom_Clancy]]>
+	</link>
+	<fans_count type="integer">4023</fans_count>
+	<author_followers_count type="integer">4023</author_followers_count>
+	<large_image_url>
+	<![CDATA[https://images.gr-assets.com/authors/1407672935p7/3892.jpg]]>
+	</large_image_url>
+	<image_url>
+	<![CDATA[https://images.gr-assets.com/authors/1407672935p5/3892.jpg]]>
+	</image_url>
+	<small_image_url>
+	<![CDATA[https://images.gr-assets.com/authors/1407672935p2/3892.jpg]]>
+	</small_image_url>
+	<about>
+	<![CDATA[
+	Tom Clancy was an English major at Baltimore’s Loyola College. As a Maryland insurance broker with a passion for naval history, his dream of writing a novel came true with his first effort, <i>The Hunt for Red October</i> (1984). <br /><br />He since wrote more than a dozen novels, which have a blend of realism and authenticity, intricate plotting, and razor-sharp suspense. Ten of the novels, including <i>The Teeth of the Tiger</i> (Berkley, 2004), feature the character Jack Ryan, former stock broker and CIA employee. <br /><br />Clancy’s non-fiction works include a series of guided tours of America’s warfighting assets, Submarine, Armored Cav, Fighter Wing, Marine, and Airborne.<br /><br />He lived in Maryland.<br /><br />The following are the books and approximate time frame in the <i>Jack Ryan Universe</i><br /><br />Without Remorse	1969-73<br />Patriot Games	1981-82<br />Red Rabbit	1982<br />The Hunt for Red October	1984<br />The Cardinal of the Kremlin	1986<br />Clear and Present Danger	1988<br />The Sum of All Fears	1990-91<br />Debt of Honor	1995-96<br />Executive Orders	1996<br />Rainbow Six	1999-2000<br />The Bear and the Dragon	2002<br />The Teeth of the Tiger	2006<br />Dead or Alive	2007<br />Locked On	2007<br />Threat Vector	2009<br />Command Authority	2013<br />Support and Defend	2014<br />Full Force and Effect	2014
+	]]>
+	</about>
+	<influences>...</influences>
+	<works_count>286</works_count>
+	<gender>male</gender>
+	<hometown>Baltimore County, Maryland</hometown>
+	<born_at>1947/04/12</born_at>
+	<died_at>2013/10/01</died_at>
+	<goodreads_author/>
+	<books>...</books>
+</author>
+
+
+Goodreads logo for Add a Book page
+https://www.goodreads.com/api/index#logo_and_images
+
+Link to goodreads for a specific book
+by ISBN: https://www.goodreads.com/book/isbn/0590353403
