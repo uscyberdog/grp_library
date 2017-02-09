@@ -1,4 +1,15 @@
 <p id="notice"><%= notice %></p>
+<h1>Book Library</h1>
+
+<h5> <%= @book.title %></h5>
+
+<h5><%= @book.author %></h5>
+
+<h5><%= @book.isbn %></h5>
+
+
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+

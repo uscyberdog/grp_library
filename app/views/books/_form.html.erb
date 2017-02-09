@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <fieldset>
+__<%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :isbn %>
+  <%= f.text_field :isbn %>
+
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
   </div>
