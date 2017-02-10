@@ -29,11 +29,18 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
+        @personal_book = PersonalBook.new
+        @personal_book.user_id = session[:user_id]
+        @personal_book.book_id = @book.id
+        @personal_book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
       else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        @personal_book = PersonalBook.new
+        @personal_book.user_id = session[:user_id]
+        masterlib_book = Book.find_by_gr_book_id(@book.gr_book_id)
+        @personal_book.book_id = masterlib_book.id
+        @personal_book.save
+        format.html { redirect_to @book, notice: 'Book was found in Master Library and has been added to your library.' }
       end
     end
   end
