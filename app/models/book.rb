@@ -5,4 +5,5 @@ class Book < ApplicationRecord
 	validates :title, presence: { message: "Title field is required" }
 	validates :author, presence: { message: "Author field is required" }
 	validates :isbn, presence: { message: "ISBN field is required" }
+	validates :gr_book_id, uniqueness: true 
 end
