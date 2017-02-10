@@ -24,16 +24,16 @@
         
 
         <td class=center_text><%= link_to 'Show', user %></td>
-        <td class=center_text><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td class=center_text><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!--         <td class=center_text><%#= link_to 'Edit', edit_user_path(user) %></td>
+ -->    <td class=center_text><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<!-- Disabled link below to force only new user registration from Login screen (change if admin used) -->
+<%#= link_to 'New User', new_user_path %>
   <div  class="btn btn-default">
         <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure you want to logout?' } %>
   </div>
