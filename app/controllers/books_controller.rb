@@ -28,13 +28,13 @@ class BooksController < ApplicationController
     puts book_params
 
     respond_to do |format|
-      if @book.save
+      if @book.save # new book in master library
         @personal_book = PersonalBook.new
         @personal_book.user_id = session[:user_id]
         @personal_book.book_id = @book.id
         @personal_book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
-      else
+      else # book already exists in master library - only add to User's personal book db
         @personal_book = PersonalBook.new
         @personal_book.user_id = session[:user_id]
         masterlib_book = Book.find_by_gr_book_id(@book.gr_book_id)
@@ -72,7 +72,14 @@ class BooksController < ApplicationController
   def lookup
     # look up isbn on goodreads
     response = GoodreadsService.new(params[:isbn]).formatted_response
-    @book = Book.new(response)
+    puts "*********************response: #{response}"
+    puts response == "failed"
+    if response == "failed"  # lookup failed
+      @book = Book.new
+      @book.errors.add(:isbn, :not_specified, message: "is invalid")
+    else # lookup was successful
+      @book = Book.new(response)
+    end
     render :new
   end
 

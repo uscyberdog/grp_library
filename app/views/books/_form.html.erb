@@ -1,14 +1,17 @@
 <%= form_tag("/lookup", method: :post) do %>
 
-  <fieldset>
-  
+  <span>
     <%= label_tag :isbn %>
     <%= text_field_tag :isbn %>
-
-
     <div class="btn btn-default">
-      <%= submit_tag "Lookup ISBN" %>
+      <%= submit_tag "Lookup ISBN" %> 
     </div>
+    <div>
+      <%= image_tag "goodreads_icon_small.png" %>
+      <span style='font-size: 20px'>Powered by Goodreads <br><br></span>
+    </div>
+  </span>
+
   </fieldset>
 <% end %>
 
@@ -24,39 +27,48 @@
       </ul>
     </div>
   <% end %>
+  <!-- Only show results, don't allow editing -->
     <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
+      <%= f.label :title %>
+      <%= f.text_field :title, :readonly => true %><br>
     </div>
-    <%#= f.label "Published" %>
-    <%#= f.date :pub_date %><br>
+ <!--  <fieldset disabled> -->
+    <div class="form-group">
+      <%= f.label :pub_date %>
+      <%= f.date_field :pub_date, :readonly => true %><br>
+      <% if @book.pub_date.nil? %>
+        <%= puts "******************pub_date: nil" %> 
+      <% else %>
+        <%= puts "*****************pub_date: #{@book.pub_date.strftime("%B %-d, %Y")}" %>
+      <% end %>
+    </div>
     <div class="form-group">
       <%= f.label "Goodreads Book ID" %>
-      <%= f.text_field :gr_book_id %><br>
+      <%= f.text_field :gr_book_id, :readonly => true  %><br>
     </div>
     <div class="form-group">
-    <%= f.label "Goodreads Rating" %>
-    <%= f.text_field :gr_avg_rating %><br>
+      <%= f.label "Goodreads Rating" %>
+      <%= f.text_field :gr_avg_rating, :readonly => true  %><br>
     </div>
     <div class="form-group">
-    <%= f.label "Number of Pages" %>
-    <%= f.text_field :num_pages %><br>
+      <%= f.label "Number of Pages" %>
+      <%= f.text_field :num_pages, :readonly => true  %><br>
     </div>  
     <div class="form-group">
-    <%= f.label "Goodreads Book Link" %>
-    <%= f.text_field :gr_link %><br>
+      <%= f.label "Goodreads Book Link" %>
+      <%= f.text_field :gr_link, :readonly => true  %><br>
     </div> 
     <div class="form-group">
-    <%= f.label :author %>
-    <%= f.text_field :author %><br>
+      <%= f.label :author %>
+      <%= f.text_field :author, :readonly => true  %><br>
     </div>
     <div class="form-group">
-    <%= f.label 'Goodreads Author ID' %>
-    <%= f.text_field :gr_author_id %><br>
+      <%= f.label 'Goodreads Author ID' %>
+      <%= f.text_field :gr_author_id, :readonly => true  %><br>
     </div>
     <div class="form-group">
-    <%= f.label 'ISBN' %>
-    <%= f.text_field :isbn %><br>
+      <%= f.label 'ISBN' %>
+      <%= f.text_field :isbn, :readonly => true  %><br>
     </div>
     <div class="form-group">
       <% if @book.book_cover_photo_med.nil? %>
@@ -69,11 +81,16 @@
     </div>
     <div class="form-group">
       <%= f.label "Description" %>
-      <%= f.text_field :description %><br>
+      <%= f.text_field :description, :readonly => true  %><br>
     </div>
     <br>
-    <div class="actions">
-      <%= f.submit 'Add book to your library' %>
-    </div>
-  <% end %>
+<!--   </fieldset> -->
+  <div class="btn">
+    <%= f.submit 'Add book to your library' %>
+  </div>
+  <div class="btn">
+    <br>
+    <%= link_to 'Back to your library', user_path(session[:user_id]) %>
+  </div>
+<% end %>
 
