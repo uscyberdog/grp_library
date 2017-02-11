@@ -39,8 +39,12 @@ class BooksController < ApplicationController
         @personal_book.user_id = session[:user_id]
         masterlib_book = Book.find_by_gr_book_id(@book.gr_book_id)
         @personal_book.book_id = masterlib_book.id
-        @personal_book.save
-        format.html { redirect_to @book, notice: 'Book was found in Master Library and has been added to your library.' }
+        # Check if already in My library, if yes return to my_library otherwise add it
+        if @personal_book.save
+          format.html { redirect_to @book, notice: 'Book was found in Master Library and has been added to your library.' }
+        else
+          format.html { redirect_to @book, notice: 'Book was already in your library!' }
+        end 
       end
     end
   end
