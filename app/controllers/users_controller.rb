@@ -62,6 +62,22 @@ class UsersController < ApplicationController
     end
   end
 
+def change_password
+    @page_title = "Changing account password"
+    @user = current_user
+    if request.post?
+
+       @user.password = Digest::SHA1.hexdigest(params[:password][:password]) 
+    if @user.save
+        redirect_to :action => 'profile'
+        flash[:status] = "Your password was changed. Next time you sign in use your new password."
+      else
+     flash[:status] = _('Your password not changed')
+        render :action => "change_password"
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -71,7 +87,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {}).permit(:fname, :lname, :email, :password)
+      params.fetch(:user, {}).permit(:fname, :lname, :email, :password, :password_confirmation)
     end
 end
 

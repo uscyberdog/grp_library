@@ -1,39 +1,37 @@
 <!-- <p id="notice"><%= notice %></p> -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Users</h1>
+      <table class="table table-bordered">
+        <thead class="thead-inverse">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th colspan="3">Actions</th>
+          </tr>
+        </thead>
 
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr tr class="info">
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td class=center_text><%= user.id %></td>
-        <td><%= user.fname %> 
-            <%= user.lname %> 
-        </td>
-        <br>
-        <td><%= user.email %></td>
-        
-
-        <td class=center_text><%= link_to 'Show', user %></td>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td class=center_text><%= user.id %></td>
+            <td><%= user.fname %> 
+              <%= user.lname %> 
+            </td>
+            <br>
+            <td><%= user.email %></td>
+            <td class=center_text><%= link_to 'Show', user %></td>
 <!--         <td class=center_text><%#= link_to 'Edit', edit_user_path(user) %></td>
- -->    <td class=center_text><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+ -->         <td class=center_text><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <br>
 <!-- Disabled link below to force only new user registration from Login screen (change if admin used) -->
 <%#= link_to 'New User', new_user_path %>
-  <div  class="btn btn-default">
+    <div  class="btn btn-default">
         <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure you want to logout?' } %>
+    </div>
   </div>
+</div>
