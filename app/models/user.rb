@@ -8,4 +8,8 @@ class User < ApplicationRecord
 	validates :fname, presence: { message: "First name field cannot be blank" }
 	validates :lname, presence: { message: "Last name field cannot be blank" }
 
+	validates_confirmation_of :password
+  
+
+	validates :password, confirmation: true
 end
