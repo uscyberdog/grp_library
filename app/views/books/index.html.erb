@@ -4,10 +4,16 @@
 
 <table class="table table-striped table-hover">
   <thead>
-    <table border="3" width="60%" cellpadding="2" cellspacing="2">
+    <table border="3" width="100%" cellpadding="4" cellspacing="4">
     <tr> 
-      <th>TITLE OF BOOKS AND AUTHOR<th>
-      <th>ISBN BOOK #</th>
+      <th>TITLE</th>
+      <th>AUTHOR</th>
+      <th>ISBN</th>
+      <th>IMAGE</th>
+      <th>DESCRIPTION</th>
+      <th>PUBLISH DATE</th>
+      <th>AUTHOR ID</th>
+      
       <th colspan="4">ACTIONS</th>
     </tr>
   </thead>
@@ -19,9 +25,13 @@
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.isbn %></td>
+        <td><%= book.book_cover_photo_sm %></td>
+        <td><%= book.description %> </td>
+        <td><%= book.pub_date %></td>
+        <td><%= book.gr_author_id %></td>
+        
         <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
