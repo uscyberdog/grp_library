@@ -4,15 +4,16 @@
 			<p id="notice"><%= notice %></p>
 		<% end %>
 		<h3><b><%= @book.title %></b></h3>
-		<%= image_tag @book.book_cover_photo_med %><br>
+		<%= image_tag @book.book_cover_photo_med %><br><br>
 		By: <%= @book.author %><br>
-		Published: <%= @book.pub_date %><br>
+		Published: <%= @book.pub_date.strftime("%B %-d, %Y") %><br>
 		ISBN: <%= @book.isbn%><br><br>
 		Pages: <%= @book.num_pages %><br>
 		Goodreads rating: <%= @book.gr_avg_rating%><br>
 		<br>
-		Description: <%= text_field @book.description, size: "80x30" %><br><br><br>
-		<%= link_to "View at Goodreads", @book.gr_link%>
+		Description: <%= @book.description %><br><br><br>
+
+		<%= link_to "View at Goodreads", @book.gr_link, class: 'btn btn-success'%>
 
 	</div>
 </div>

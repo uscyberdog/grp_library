@@ -37,15 +37,18 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
     </div>  
-  <!-- Need to add password confirmation setup here -->
-
+ 
   </fieldset>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
+  
+  <% if @current_user.nil? %>
+    <%= f.submit 'Register', :class => 'btn btn-default' %>
+    <%= link_to 'Cancel', login_path, class: 'btn btn-default' %>
+  <% else %>
+    <%= f.submit 'Update Registration', :class => 'btn btn-default' %>
+    <%= link_to 'Back to My Library', user_path(session[:user_id]), class: 'btn btn-default' %>
+  <% end %>
 <% end %>
 
   

@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
 	validates :email, uniqueness: true
 
-	validates :fname, presence: { message: "First name field cannot be blank" }
-	validates :lname, presence: { message: "Last name field cannot be blank" }
+	validates :fname, presence: { message: "(First name) field cannot be blank" }
+	validates :lname, presence: { message: "(Last name) field cannot be blank" }
 
 	validates_confirmation_of :password
   
