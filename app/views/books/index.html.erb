@@ -6,26 +6,12 @@
 
 <table class="table table-striped table-hover">
   <thead>
-
-    <table border="3" width="100%" cellpadding="4" cellspacing="4">
-    <tr> 
-      <th>TITLE</th>
-      <th>AUTHOR</th>
-      <th>ISBN</th>
-      <th>IMAGE</th>
-      <th>DESCRIPTION</th>
-      <th>PUBLISH DATE</th>
-      <th>AUTHOR ID</th>
-      
-      <th colspan="4">ACTIONS</th>
-
     <tr> 
       <th>Title</th>
       <th>Author</th>
       <th>ISBN</th>
       <th>Cover</th>
-      <th>ACTIONS</th>
-
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -35,14 +21,6 @@
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.isbn %></td>
-
-        <td><%= book.book_cover_photo_sm %></td>
-        <td><%= book.description %> </td>
-        <td><%= book.pub_date %></td>
-        <td><%= book.gr_author_id %></td>
-        
-        <td><%= link_to 'Show', book %></td>
-
         <td><%= image_tag book.book_cover_photo_sm %></td>
         <td><%= link_to 'Show', book %></td>
       </tr>
