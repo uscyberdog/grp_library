@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-<h1>Book Library</h1>
+<div class="jumbotron">
+	<div class="container">
 
 <h3> <%= @book.title %></h3>
 
@@ -9,9 +9,20 @@
 
 <h3><%= @book.book_cover_photo_med %><h3>
 
+		<p id="notice"><%= notice %></p>
+
+		<h1>Book Library</h1>
+
+		<h5 style="font-size: 20px"> <%= @book.title %></h5>
+
+		<h5 style="font-size: 18px"><%= @book.author %></h5>
+
+		<h5 style="font-size: 18px"><%= @book.isbn %></h5>
+
+	</div>
+</div>
 
 
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
+|
 <%= link_to 'Back', books_path %>
 

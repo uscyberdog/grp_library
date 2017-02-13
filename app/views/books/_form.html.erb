@@ -1,30 +1,20 @@
 <%= form_tag("/lookup", method: :post) do %>
-
-  <fieldset>
-  
-    <%= label_tag :isbn %>
-    <%= text_field_tag :isbn %>
-
-
+<div class="jumbotron">
+  <div class="container">
+    <span>
+      <%= label_tag :isbn %>
+      <%= text_field_tag :isbn %>
     <div class="btn btn-default">
-      <%= submit_tag "Lookup ISBN" %>
+      <%= submit_tag "Lookup ISBN" %> 
     </div>
+    <div>
+      <%= image_tag "goodreads_icon_small.png" %>
+      <span style='font-size: 20px'>Powered by Goodreads <br><br></span>
+    </div>
+  </span>
+
   </fieldset>
 <% end %>
-
-
-
-  </fieldset>
-
-<!--     t.string   "author"
-    t.string   "gr_author_id"
-    t.text     "description"
-    t.integer  "pub_date"
-    t.string   "isbn"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "title"
-    t.string   "photo_uri" -->
 
 <%= form_for(book) do |f| %>
   <% if book.errors.any? %>
@@ -38,54 +28,70 @@
       </ul>
     </div>
   <% end %>
-    <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
+  <!-- Only show results, don't allow editing -->
+    <div class="well">
+      <%= f.label :title %>
+      <%= f.text_field :title, :readonly => true %><br>
     </div>
-    <%#= f.label "Published" %>
-    <%#= f.date :pub_date %><br>
-    <div class="form-group">
+ <!--  <fieldset disabled> -->
+    <div class="well">
+      <%= f.label :pub_date %>
+      <%= f.date_field :pub_date, :readonly => true %><br>
+      <% if @book.pub_date.nil? %>
+        <%= puts "******************pub_date: nil" %> 
+      <% else %>
+        <%= puts "*****************pub_date: #{@book.pub_date.strftime("%B %-d, %Y")}" %>
+      <% end %>
+    </div>
+    <div class="well">
       <%= f.label "Goodreads Book ID" %>
-      <%= f.text_field :gr_book_id %><br>
+      <%= f.text_field :gr_book_id, :readonly => true  %><br>
     </div>
-    <div class="form-group">
-    <%= f.label "Goodreads Rating" %>
-    <%= f.text_field :gr_avg_rating %><br>
+    <div class="well">
+      <%= f.label "Goodreads Rating" %>
+      <%= f.text_field :gr_avg_rating, :readonly => true  %><br>
     </div>
-    <div class="form-group">
-    <%= f.label "Number of Pages" %>
-    <%= f.text_field :num_pages %><br>
+    <div class="well">
+      <%= f.label "Number of Pages" %>
+      <%= f.text_field :num_pages, :readonly => true  %><br>
     </div>  
-    <div class="form-group">
-    <%= f.label "Goodreads Book Link" %>
-    <%= f.text_field :gr_link %><br>
+    <div class="well">
+      <%= f.label "Goodreads Book Link" %>
+      <%= f.text_field :gr_link, :readonly => true  %><br>
     </div> 
-    <div class="form-group">
-    <%= f.label :author %>
-    <%= f.text_field :author %><br>
+    <div class="well">
+      <%= f.label :author %>
+      <%= f.text_field :author, :readonly => true  %><br>
     </div>
-    <div class="form-group">
-    <%= f.label 'Goodreads Author ID' %>
-    <%= f.text_field :gr_author_id %><br>
+    <div class="well">
+      <%= f.label 'Goodreads Author ID' %>
+      <%= f.text_field :gr_author_id, :readonly => true  %><br>
     </div>
-    <div class="form-group">
-    <%= f.label 'ISBN' %>
-    <%= f.text_field :isbn %><br>
+    <div class="well">
+      <%= f.label 'ISBN' %>
+      <%= f.text_field :isbn, :readonly => true  %><br>
     </div>
-  <% if @book.book_cover_photo_med.nil? %>
-  <% else %>
-    <%= f.label 'Book Cover' %>
-    <%= image_tag f.object.book_cover_photo_med %><br>
-    <%= f.hidden_field :book_cover_photo_med, value: @book.book_cover_photo_med %>
-    <%= f.hidden_field :book_cover_photo_sm, value: @book.book_cover_photo_sm %>
-  <% end %>
-  <div class="form-group">
-  <%= f.label "Description" %>
-  <%= f.text_field :description %><br>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit 'Add book to your library' %>
-  </div>
-<% end %>
+    <div class="well">
+      <% if @book.book_cover_photo_med.nil? %>
+      <% else %>
+        <%= f.label 'Book Cover' %>
+        <%= image_tag f.object.book_cover_photo_med %><br>
+        <%= f.hidden_field :book_cover_photo_med, value: @book.book_cover_photo_med %>
+        <%= f.hidden_field :book_cover_photo_sm, value: @book.book_cover_photo_sm %>
+      <% end %>
+    </div>
+    <div class="well">
+      <%= f.label "Description" %>
+      <%= f.text_area :description, :readonly => true  %><br>
+    </div>
+    <br>
+<!--   </fieldset> -->
 
+    <%= f.submit 'Add book to your library', class: 'btn btn-default' %>
+
+    <br>
+    <%= link_to 'Back to your library', user_path(session[:user_id]), class: 'btn btn-default' %>
+ 
+<% end %>
+  </div>
+</div>

@@ -28,12 +28,23 @@ class BooksController < ApplicationController
     puts book_params
 
     respond_to do |format|
-      if @book.save
+      if @book.save # new book in master library
+        @personal_book = PersonalBook.new
+        @personal_book.user_id = session[:user_id]
+        @personal_book.book_id = @book.id
+        @personal_book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
-      else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+      else # book already exists in master library - only add to User's personal book db
+        @personal_book = PersonalBook.new
+        @personal_book.user_id = session[:user_id]
+        masterlib_book = Book.find_by_gr_book_id(@book.gr_book_id)
+        @personal_book.book_id = masterlib_book.id
+        # Check if already in My library, if yes return to my_library otherwise add it
+        if @personal_book.save
+          format.html { redirect_to @book, notice: 'Book was found in Master Library and has been added to your library.' }
+        else
+          format.html { redirect_to @book, notice: 'Book was already in your library!' }
+        end 
       end
     end
   end
@@ -65,7 +76,14 @@ class BooksController < ApplicationController
   def lookup
     # look up isbn on goodreads
     response = GoodreadsService.new(params[:isbn]).formatted_response
-    @book = Book.new(response)
+    puts "*********************response: #{response}"
+    puts response == "failed"
+    if response == "failed"  # lookup failed
+      @book = Book.new
+      @book.errors.add(:isbn, :not_specified, message: "is invalid")
+    else # lookup was successful
+      @book = Book.new(response)
+    end
     render :new
   end
 
