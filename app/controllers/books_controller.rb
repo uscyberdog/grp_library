@@ -35,14 +35,19 @@ class BooksController < ApplicationController
         @personal_book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
       else # book already exists in master library - only add to User's personal book db
+        puts "************* book already in master"
         @personal_book = PersonalBook.new
         @personal_book.user_id = session[:user_id]
         masterlib_book = Book.find_by_gr_book_id(@book.gr_book_id)
         @personal_book.book_id = masterlib_book.id
         # Check if already in My library, if yes return to my_library otherwise add it
-        if @personal_book.save
+        puts "****** PB.user_id #{@personal_book.user_id}"
+        puts "****** PB.book_id #{@personal_book.book_id}"
+        if result = @personal_book.save
+          puts "****TRUE******** personal_book.save = #{result}"
           format.html { redirect_to @book, notice: 'Book was found in Master Library and has been added to your library.' }
         else
+          puts "****FALSE******* personal_book.save = #{result}"
           format.html { redirect_to @book, notice: 'Book was already in your library!' }
         end 
       end

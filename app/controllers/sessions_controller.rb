@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def redirect_to_user_index_if_logged_in
-  	redirect_to users_path if @current_user.present?
+  	redirect_to user_path(@current_user.id) if @current_user.present?
   end
 end
 
