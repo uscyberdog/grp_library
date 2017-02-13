@@ -16,14 +16,24 @@
   </thead>
 
   <tbody>
-    <% @books.each do |book| %>
+    <% if @books.empty? %>
       <tr>
-        <td><%= book.title %></td>
-        <td><%= book.author %></td>
-        <td><%= book.isbn %></td>
-        <td><%= image_tag book.book_cover_photo_sm %></td>
-        <td><%= link_to 'Show', book %></td>
+        <td>No books in Master Library</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
+    <% else %>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.isbn %></td>
+          <td><%= image_tag book.book_cover_photo_sm %></td>
+          <td><%= link_to 'Show', book %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -31,4 +41,4 @@
 <br>
   </div>
 </div>
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'Add A New Book', new_book_path %>

@@ -1,7 +1,8 @@
 <!-- Show any notice returned from a previous action -->
 <p id="notice"><%= notice %></p>
 <!-- Display a single user -->
-<h1 class="name">Showing User: <%= @user.fname %> <%=@user.lname %></h1>
+<span class="name">Showing User: <%= @user.fname %> <%=@user.lname %></span>
+<span style="font-size: 15px; font-family: Helvetica"><%= link_to '(edit credentials)', edit_user_path(@user) %></span><br><br>
 
 
 <span>Email: <%= @user.email %></span>
@@ -41,6 +42,3 @@
 	  <% end %>
   </tbody>
 </table>
-<div class="btn btn-default">
-<%= link_to 'Edit Your Login Information', edit_user_path(@user) %>
-</div>
