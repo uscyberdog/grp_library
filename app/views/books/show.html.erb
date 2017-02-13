@@ -1,20 +1,21 @@
 <div class="jumbotron">
 	<div class="container">
-
-		<p id="notice"><%= notice %></p>
-
-		<h1>Book Library</h1>
-
-		<h5 style="font-size: 20px"> <%= @book.title %></h5>
-
-		<h5 style="font-size: 18px"><%= @book.author %></h5>
-
-		<h5 style="font-size: 18px"><%= @book.isbn %></h5>
-
+		<% if notice.present? %>
+			<p id="notice"><%= notice %></p>
+		<% end %>
+		<h3><b><%= @book.title %></b></h3>
+		<%= image_tag @book.book_cover_photo_med %><br>
+		By: <%= @book.author %><br>
+		Published: <%= @book.pub_date %><br>
+		ISBN: <%= @book.isbn%><br><br>
+		Pages: <%= @book.num_pages %><br>
+		Goodreads rating: <%= @book.gr_avg_rating%><br>
+		<br>
+		Description: <%= text_field @book.description, size: "80x30" %><br><br><br>
+		<%= link_to "View at Goodreads", @book.gr_link%>
 	</div>
 </div>
 
-
-|
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back to My Library', user_path(@current_user.id) %> |
+<%= link_to 'Back to Master Library', books_path %>
 

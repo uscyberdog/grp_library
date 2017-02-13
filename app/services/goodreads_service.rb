@@ -12,8 +12,9 @@ class GoodreadsService
 
 	def formatted_response
 		# Query GoodReads db using the ISBN with our credentials (client)
-		search = client.book_by_isbn(isbn)
-		if search.nil?
+		begin
+			search = client.book_by_isbn(isbn)
+		rescue
 			# Query failed, return an empty hash
 			"failed"
 		else # Query was successful
@@ -27,15 +28,15 @@ class GoodreadsService
 			
 			# some books only have year published so use 01/01/YYYY in those cases
 			if search.work.original_publication_year.nil?
-			  pub_yr = search.publication_year
-	    	pub_mth = search.publication_month || "01"
-	    	pub_day = search.publication_day || "01"
-	    	str_date = "#{pub_yr}-#{pub_mth}-#{pub_day}"
+			  pub_yr = search.publication_year.to_i
+	    	pub_mth = (search.publication_month || "01").to_i
+	    	pub_day = (search.publication_day || "01").to_i
+	    	p_date = Date.new(pub_yr, pub_mth, pub_day)
 	    else
-			  pub_yr = search.work.original_publication_year
-	    	pub_mth = search.work.original_publication_month || "01"
-	    	pub_day = search.work.original_publication_day || "01"
-	    	str_date = "#{pub_yr}-#{pub_mth}-#{pub_day}"
+			  pub_yr = search.work.original_publication_year.to_i
+	    	pub_mth = (search.work.original_publication_month || "01").to_i
+	    	pub_day = (search.work.original_publication_day || "01").to_i
+	    	p_date = Date.new(pub_yr, pub_mth, pub_day)
 	    end
 
 	    # Determine if there are multiple authors
@@ -43,7 +44,7 @@ class GoodreadsService
 				{
 					title: search.work.original_title || search.title,
 					isbn: search.isbn,
-					pub_date: str_date,
+					pub_date: p_date,
 					author: search.authors.author.name,
 					gr_author_id: search.authors.author.id,
 		    	book_cover_photo_med: search.image_url,
@@ -58,7 +59,7 @@ class GoodreadsService
 				{
 					title: search.work.original_title || search.title,
 					isbn: search.isbn,
-					pub_date: str_date,
+					pub_date: p_date,
 					author: search.authors.author[0].name,
 					gr_author_id: search.authors.author[0].id,
 		    	book_cover_photo_med: search.image_url,
