@@ -33,6 +33,19 @@ a {
   }
 }
 
+.page-link {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
 th {
   padding-bottom: 5px;
 }

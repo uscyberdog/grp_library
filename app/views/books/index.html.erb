@@ -31,7 +31,7 @@
           <td><%= book.author %></td>
           <td><%= book.isbn %></td>
           <td><%= image_tag book.book_cover_photo_sm %></td>
-          <td><%= link_to 'Show', book %></td>
+          <td><%= link_to 'Show', book, class: 'page-link' %></td>
         </tr>
       <% end %>
     <% end %>
@@ -41,4 +41,4 @@
 <br>
   </div>
 </div>
-<%= link_to 'Add A New Book', new_book_path %>
+<%= link_to 'Add A New Book', new_book_path, class: 'page-link' %>
