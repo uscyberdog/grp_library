@@ -2,7 +2,11 @@ class GoodreadsService
 	attr_reader :isbn, :client
 
 	def initialize(isbn)
-		@isbn = isbn
+		if isbn.empty?
+			@isbn = "EMPTY"
+		else
+			@isbn = isbn
+		end
 		@client = Goodreads::Client.new(Goodreads.configuration)
 	end
 
@@ -13,7 +17,7 @@ class GoodreadsService
 	def formatted_response
 		# Query GoodReads db using the ISBN with our credentials (client)
 		begin
-			search = client.book_by_isbn(isbn)
+			search = client.book_by_isbn(@isbn)
 		rescue
 			# Query failed, return an empty hash
 			"failed"
