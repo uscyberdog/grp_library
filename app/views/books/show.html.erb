@@ -14,10 +14,17 @@
 		Description: <%= @book.description %><br><br><br>
 
 		<%= link_to "View at Goodreads", @book.gr_link, class: 'btn btn-success'%>
-
+		 | 
+		<% if @book.id > 1 %>
+			<%= link_to 'Previous Book', Book.find(@book.id - 1), class: 'btn btn-default' %>  
+		<% end %>
+		 
+		<% if Book.last.id > @book.id %>
+			<%= link_to 'Next Book', Book.find(@book.id + 1), class: 'btn btn-default' %>
+		<% end %>
 	</div>
 </div>
-
 <%= link_to 'Back to My Library', user_path(@current_user.id) %> |
 <%= link_to 'Back to Master Library', books_path %>
+
 
